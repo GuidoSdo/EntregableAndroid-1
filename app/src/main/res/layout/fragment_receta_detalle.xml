@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.guidosalcedo.entregableguidosalcedo.Fragments.RecetaDetalleFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageViewImagenDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/higuain"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:hint="TITULO DE LA RECETA"
+        android:id="@+id/textViewTitulo"/>
+
+    <TextView
+        android:id="@+id/textViewIngredientes"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+
+        android:hint="Ingredientes"
+        android:textColor="#000000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textViewPreparacion"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:hint="Preparacion" />
+
+</LinearLayout>
