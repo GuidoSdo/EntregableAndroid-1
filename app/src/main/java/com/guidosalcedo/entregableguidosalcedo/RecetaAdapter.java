@@ -77,6 +77,7 @@ public class RecetaAdapter extends RecyclerView.Adapter {
                 public void onClick(View view) {
                     Integer posicionCeldaSeleccionada = getAdapterPosition();
 /*
+                    Esto es al pedo
                     Receta recetaSeleccionada = listaDeRecetas.get(posicionCeldaSeleccionada);
 */
                     escuchadorRecetas.recibirMensajeDelAdapter(posicionCeldaSeleccionada);

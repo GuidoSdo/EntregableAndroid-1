@@ -89,13 +89,18 @@ public class MainActivity extends AppCompatActivity implements ComunicadorFragme
     // Comunicacion con - RecetaFragment
     @Override
     public void clickEnCelda(Integer posicionRecetaSeleccionada) {
-
+        Intent unIntent = new Intent(this, ViewPagerActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt("posicion",posicionRecetaSeleccionada);
 
-        RecetaDetalleFragment detalleFragment = new RecetaDetalleFragment();
+        // Esto se usaba para usar el fragment detalle en el mismo main
+      /*  RecetaDetalleFragment detalleFragment = new RecetaDetalleFragment();
         detalleFragment.setArguments(bundle);
-        cargarFragment(detalleFragment);
+        cargarFragment(detalleFragment);*/
+
+        unIntent.putExtras(bundle);
+
+        startActivity(unIntent);
 
     }
 }

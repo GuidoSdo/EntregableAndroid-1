@@ -37,6 +37,16 @@ public class RecetaDetalleFragment extends Fragment {
     public RecetaDetalleFragment() {
         // Required empty public constructor
     }
+    static public RecetaDetalleFragment crearFragmentoDetalle(Integer posicion){
+
+        RecetaDetalleFragment fragmentoDetalle = new RecetaDetalleFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("posicion", posicion);
+        fragmentoDetalle.setArguments(bundle);
+
+
+        return fragmentoDetalle;
+    }
 
 
     @Override
