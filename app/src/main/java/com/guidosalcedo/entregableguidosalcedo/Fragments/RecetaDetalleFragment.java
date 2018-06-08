@@ -28,15 +28,11 @@ public class RecetaDetalleFragment extends Fragment {
     private TextView textViewIngredientes;
     private TextView textViewPreparacion;
     private ImageView imageViewDetalleImagen;
-    private Receta recetaSeleccionada;
-    private DataProvider dataProvider = new DataProvider();
-
-
-
 
     public RecetaDetalleFragment() {
         // Required empty public constructor
     }
+
     static public RecetaDetalleFragment crearFragmentoDetalle(Integer posicion){
 
         RecetaDetalleFragment fragmentoDetalle = new RecetaDetalleFragment();
@@ -48,7 +44,6 @@ public class RecetaDetalleFragment extends Fragment {
         return fragmentoDetalle;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,10 +54,12 @@ public class RecetaDetalleFragment extends Fragment {
         textViewIngredientes = view.findViewById(R.id.textViewIngredientes);
         textViewPreparacion = view.findViewById(R.id.textViewPreparacion);
         imageViewDetalleImagen = view.findViewById(R.id.imageViewImagenDetalle);
+        DataProvider dataProvider = new DataProvider();
 
         Bundle unBundle = getArguments();
+        Integer posicion = unBundle.getInt("posicion");
 
-        recetaSeleccionada = dataProvider.getListaRecetas().get(unBundle.getInt("posicion"));
+        Receta recetaSeleccionada = dataProvider.getListaRecetas().get(posicion);
 
         textViewTitulo.setText(recetaSeleccionada.getTitulo());
         textViewIngredientes.setText(recetaSeleccionada.getIngredientes());

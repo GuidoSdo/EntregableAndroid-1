@@ -15,14 +15,17 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private List<Fragment> fragmentos = new ArrayList<>();
 
-    // revisar
-
-    public ViewPagerAdapter(FragmentManager fm, List<Receta>listaRecetas) {
+    public ViewPagerAdapter(FragmentManager fm, List<Receta>listaRecetas,Integer posicion) {
         super(fm);
+
+        fragmentos.add(RecetaDetalleFragment.crearFragmentoDetalle(posicion));
+
         for (Receta unaReceta:listaRecetas) {
 
-            fragmentos.add(RecetaDetalleFragment.crearFragmentoDetalle(fragmentos.indexOf(unaReceta)));
+            if(posicion != (listaRecetas.indexOf(unaReceta))){
 
+                fragmentos.add(RecetaDetalleFragment.crearFragmentoDetalle(listaRecetas.indexOf(unaReceta)));
+            }
         }
     }
     @Override

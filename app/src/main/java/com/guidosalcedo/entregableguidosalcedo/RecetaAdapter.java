@@ -75,16 +75,14 @@ public class RecetaAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Integer posicionCeldaSeleccionada = getAdapterPosition();
-/*
-                    Esto es al pedo
-                    Receta recetaSeleccionada = listaDeRecetas.get(posicionCeldaSeleccionada);
-*/
                     escuchadorRecetas.recibirMensajeDelAdapter(posicionCeldaSeleccionada);
 
                 }
             });
     }
+
         public void asignarReceta(Receta unaReceta) {
 
             textViewTitulo.setText(unaReceta.getTitulo());
@@ -93,8 +91,7 @@ public class RecetaAdapter extends RecyclerView.Adapter {
         }
     }
 
-    // Interface que se necesita para implementar este adapterd
     public interface EscuchadorRecetas{
-        public void recibirMensajeDelAdapter(Integer posicionRecetaSeleccionada);
+        void recibirMensajeDelAdapter(Integer posicion);
     }
 }
