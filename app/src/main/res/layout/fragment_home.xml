@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="#bbf4e4"
     tools:context="com.guidosalcedo.entregableguidosalcedo.Fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,6 +12,7 @@
         android:src="@mipmap/ic_launcher_round"
         />
     <TextView
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="APP ENTREGABLE 1 DIGITAL HOUSE"
