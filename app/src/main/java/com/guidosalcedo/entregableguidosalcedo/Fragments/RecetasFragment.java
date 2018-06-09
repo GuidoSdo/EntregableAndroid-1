@@ -3,6 +3,7 @@ package com.guidosalcedo.entregableguidosalcedo.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,8 +30,10 @@ public class RecetasFragment extends Fragment implements RecetaAdapter.Escuchado
 
     private ComunicadorFragmentAlActivity comunicadorFragmentAlActivity;
     private EditText editTextBuscador;
-
-
+    private List<Receta> listaDeRecetas;
+    private RecetaAdapter adapter;
+    private RecyclerView recyclerViewRecetas;
+    private DataProvider dataProvider;
 
     public RecetasFragment() {
         // Required empty public constructor
@@ -40,21 +43,20 @@ public class RecetasFragment extends Fragment implements RecetaAdapter.Escuchado
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        DataProvider unDataProvider = new DataProvider();
-        List<Receta> listaDeRecetas;
-
+        dataProvider = new DataProvider();
 
         View viewRecetasFragment = inflater.inflate(R.layout.fragment_recetas, container, false);
 
-        RecyclerView recyclerViewRecetas = viewRecetasFragment.findViewById(R.id.recyclerViewRecetas);
+        recyclerViewRecetas = viewRecetasFragment.findViewById(R.id.recyclerViewRecetas);
 
-        listaDeRecetas = unDataProvider.getListaRecetas();
+        listaDeRecetas = dataProvider.getListaRecetas();
 
-        final RecetaAdapter adapter = new RecetaAdapter(listaDeRecetas,this);
+        adapter = new RecetaAdapter(listaDeRecetas,this);
 
         recyclerViewRecetas.setAdapter(adapter);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),1);
+
         recyclerViewRecetas.setLayoutManager(layoutManager);
 
         editTextBuscador = viewRecetasFragment.findViewById(R.id.editTextBuscador);
@@ -71,44 +73,30 @@ public class RecetasFragment extends Fragment implements RecetaAdapter.Escuchado
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
             }
         });
 
-
-
         return viewRecetasFragment;
-
-
-
-
-
-
     }
 
-
-/*
     private void filter(String text){
 
-        List<Receta> listaRecetas = DataProvider.listaDeRecetas;
-        List<Receta> listaDeRecetasFiltrada = new ArrayList<>();
+        ArrayList<Receta> listaDeRecetasFiltrada = new ArrayList<>();
 
-        for (Receta item : listaRecetas) {
-            if (item..toLowerCase().contains(text.toLowerCase())); {
-                listaDeRecetasFiltrada.add(item);
+        for (Receta unaReceta : listaDeRecetas) {
+            if (unaReceta.getTitulo().toLowerCase().contains(text.toLowerCase()))
+            {
+                listaDeRecetasFiltrada.add(unaReceta);
             }
         }
 
-        mAdapter.listaDeRecetasFiltrada(filte)
+        adapter.filterList(listaDeRecetasFiltrada);
+        DataProvider.listaDeRecetas = listaDeRecetasFiltrada;
+    }
 
-
-    }*/
-
-
-
-
-    // Interface que me pide el Adapter
+    // Interface que me pide el Adapter recycler
     @Override
     public void recibirMensajeDelAdapter(Integer posicion) {
         comunicadorFragmentAlActivity.clickEnCelda(posicion);

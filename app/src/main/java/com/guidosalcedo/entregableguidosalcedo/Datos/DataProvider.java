@@ -10,8 +10,8 @@ import java.util.List;
 
 
 public class DataProvider {
-    public static List<Receta> listaDeRecetas = new ArrayList<>();
 
+    public static List<Receta> listaDeRecetas = new ArrayList<>();
 
     public  List<Receta> getListaRecetas() {
 

@@ -29,9 +29,9 @@ public class ViewPagerActivity extends AppCompatActivity {
         Intent unIntent = getIntent();
         Bundle unBundle = unIntent.getExtras();
 
-        DataProvider dataProvider = new DataProvider();
 
-        viewPagerAdapter = new ViewPagerAdapter(fragmentManager,dataProvider.getListaRecetas(),unBundle.getInt("posicion"));
+
+        viewPagerAdapter = new ViewPagerAdapter(fragmentManager,DataProvider.listaDeRecetas,unBundle.getInt("posicion"));
         viewPager = findViewById(R.id.viewPager);
 
         viewPager.setAdapter(viewPagerAdapter);

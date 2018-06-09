@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="La aplicacion esta finalizada"
+        android:text="APP ENTREGABLE 1 DIGITAL HOUSE"
         android:textSize="20dp"
         android:textAlignment="center"
         />
@@ -23,9 +23,10 @@
         android:layout_marginTop="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainActivity"
+        android:text="-MainActivity-"
         android:textSize="15dp"
         android:textColor="#333030"
+        android:layout_gravity="center"
         />
 
 

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.guidosalcedo.entregableguidosalcedo.Datos.Receta;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -92,6 +93,12 @@ public class RecetaAdapter extends RecyclerView.Adapter {
     }
 
     public interface EscuchadorRecetas{
+
         void recibirMensajeDelAdapter(Integer posicion);
+    }
+
+    public void filterList(ArrayList<Receta> listaDeRecetasFiltradas){
+        listaDeRecetas = listaDeRecetasFiltradas;
+        notifyDataSetChanged();
     }
 }

@@ -23,6 +23,8 @@
         android:text="About Us"
         android:textSize="15dp"
         android:textColor="#333030"
+        android:layout_gravity="center"
+
         />
 
 </LinearLayout>
